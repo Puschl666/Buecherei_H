@@ -1,0 +1,60 @@
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class ModelFile implements StatisticBusiness{
+
+	@Override
+	public ArrayList load() {
+		ArrayList statList = new ArrayList();
+		try
+		{
+			FileReader fr = new FileReader("statistics.dat");
+			BufferedReader br = new BufferedReader(fr);
+			
+			String dt = br.readLine();
+			int wBen, wCom, erg;
+			
+			while(dt!=null)
+			{
+				
+			}
+		}
+		catch(Exception e)
+		{
+			
+		}
+		return statList;
+	}
+
+	@Override
+	public boolean save(ArrayList list) {
+		try
+		{
+			FileWriter fw = new FileWriter("statistics.dat", true);
+			BufferedWriter bw = new BufferedWriter(fw);
+			for(Iterator it = list.iterator();it.hasNext();)
+			{
+				Statistics stat = (Statistics)it.next();
+				bw.append(stat.getDateTime().toString());
+				bw.newLine();
+				bw.append(String.valueOf(stat.getwBen()));
+				bw.newLine();
+				bw.append(String.valueOf(stat.getwCom()));
+				bw.newLine();
+				bw.append(String.valueOf(stat.getErg()));
+			}
+			bw.close();
+			return true;
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.toString());
+			return false;
+		}
+		
+	}
+}

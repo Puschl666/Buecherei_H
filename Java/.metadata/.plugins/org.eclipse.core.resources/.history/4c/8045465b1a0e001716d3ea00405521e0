@@ -1,0 +1,7 @@
+import java.util.ArrayList;
+
+public class StatisticBusiness {
+	
+	ArrayList load();
+	boolean save(ArrayList list)
+}

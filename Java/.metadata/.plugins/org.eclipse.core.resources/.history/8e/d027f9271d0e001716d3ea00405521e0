@@ -1,0 +1,31 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.Iterator;
+
+public class ModelFile implements StatisticBusiness{
+
+	@Override
+	public ArrayList load() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean save(ArrayList list) {
+		try
+		{
+			FileWriter fw = new FileWriter("statistics.dat", true);
+			BufferedWriter bw = new BufferedWriter(fw);
+			for(Iterator it = list.iterator();it.hasNext();)
+			{
+				bw.append(stat.getDateTime());
+			}
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.toString());
+		}
+		return false;
+	}
+}

@@ -1,0 +1,105 @@
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class GameFrame extends JFrame implements ActionListener {
+	
+		private Container contentPane;
+		private JLabel lblUserText, lblComputerText, lblUserChoice, lblComputerChoice,lblUserChoice2, lblComputerChoice2, lblInfo;
+		private JButton btnScissors, btnRock, btnPaper, btnLizard, btnSpock, btnStatic, btnEnd; 
+		private JPanel pnlGameInfos, pnlChoices, pnlSouth;
+		
+		public GameFrame(){
+
+			super("Schere, Stein, Papier, Echse, Spock");
+			setDefaultCloseOperation(EXIT_ON_CLOSE);
+			
+			lblUserText = new JLabel ("Ihre Wahl:");
+			lblComputerText = new JLabel ("Computerwahl");
+			lblUserChoice = new JLabel("Wahl: ");
+			lblComputerChoice = new JLabel("Wahl:");
+			btnScissors = new JButton("Schere");
+			btnRock = new JButton("Stein");
+			btnPaper = new JButton("Papier");
+			btnLizard = new JButton("Echse");
+			btnSpock = new JButton("Spock");
+			lblInfo = new JLabel ("Test");
+			btnStatic = new JButton("Statistik");
+			btnEnd = new JButton("Ende");
+			
+			btnScissors.addActionListener(this);
+			btnRock.addActionListener(this);
+			btnPaper.addActionListener(this);
+			btnLizard.addActionListener(this);
+			btnSpock.addActionListener(this);
+			btnStatic.addActionListener(this);
+			btnEnd.addActionListener(this);
+			
+			//GameInfo Panel erstellen
+			pnlGameInfos = new JPanel(new GridLayout(2,2));
+			pnlGameInfos.add(lblUserText);
+			pnlGameInfos.add(lblComputerText);
+			pnlGameInfos.add(lblUserChoice);
+			pnlGameInfos.add(lblComputerChoice);
+			
+			//Choices Panel erstellen
+			pnlChoices = new JPanel(new GridLayout(1,5));
+			pnlChoices.add(btnScissors);
+			pnlChoices.add(btnRock);
+			pnlChoices.add(btnPaper);
+			pnlChoices.add(btnLizard);
+			pnlChoices.add(btnSpock);
+				
+			//South Panel erstellen
+			pnlSouth = new JPanel(new GridLayout(1,2));
+			pnlSouth.add(btnStatic);
+			pnlSouth.add(btnEnd);
+			
+			contentPane = getContentPane();
+			contentPane.setLayout(new BorderLayout());
+			
+			contentPane.add(pnlGameInfos,BorderLayout.PAGE_START);
+			contentPane.add(pnlChoices);
+			contentPane.add(lblInfo, BorderLayout.SOUTH);
+			contentPane.add(pnlSouth, BorderLayout.PAGE_END);
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent ae) {
+			// TODO Auto-generated method stub
+			Object source = ae.getSource();
+			
+			if(source=="btnEnd")
+			
+			switch(source.toString()){
+			
+				case "btnScissors":
+					lblUserChoice.setText("Schere");
+					break;
+				case "btnRock":
+					lblUserChoice.setText("Stein");
+					break;
+				case "btnPaper":
+					lblUserChoice.setText("Papier");
+					break;
+				case "btnLizard":
+					lblUserChoice.setText("Echse");
+					break;
+				case "btnSpock":
+					lblUserChoice.setText("Spock");
+					break;
+				case "btnStatic":
+					break;
+				case "btnEnd":
+					System.exit(0);
+					break;
+			}
+		}
+}

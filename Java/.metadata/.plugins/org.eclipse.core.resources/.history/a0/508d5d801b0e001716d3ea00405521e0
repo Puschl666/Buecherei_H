@@ -1,0 +1,24 @@
+import java.io.FileWriter;
+import java.util.ArrayList;
+
+public class ModelFile implements StatisticBusiness{
+
+	@Override
+	public ArrayList load() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean save(ArrayList list) {
+		try
+		{
+			FileWriter fw = new FileWriter("statistics.dat", true)
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.toString());
+		}
+		return false;
+	}
+}

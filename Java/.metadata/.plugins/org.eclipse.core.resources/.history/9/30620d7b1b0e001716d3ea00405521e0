@@ -1,0 +1,16 @@
+import java.util.ArrayList;
+
+public class ModelFile implements StatisticBusiness{
+
+	@Override
+	public ArrayList load() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public boolean save(ArrayList list) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+}

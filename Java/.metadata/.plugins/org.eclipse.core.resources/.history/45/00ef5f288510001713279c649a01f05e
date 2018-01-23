@@ -1,0 +1,70 @@
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class StatisticFrame extends JFrame implements ActionListener{
+	private Container contentPane;
+	private JLabel lblGameSum, lblWins, lblLose, lblRemis;
+	private JLabel lblGameSum2, lblWins2, lblLose2, lblRemis2;
+	private JButton btnReset, btnEnd; 
+	private JPanel pnlStatic, pnlSouth;
+	
+	public StatisticFrame(){
+		super("Statistic");
+		
+		lblGameSum = new JLabel("Spiele gesamt: ");
+		lblWins = new JLabel("davon gewonnen: ");
+		lblLose = new JLabel("davon verloren: ");
+		lblRemis = new JLabel("davon remis: ");
+		lblGameSum2 = new JLabel("");
+		lblWins2 = new JLabel("");
+		lblLose2 = new JLabel("");
+		lblRemis2 = new JLabel("");
+		btnReset = new JButton("Reset");
+		btnEnd = new JButton("Zurück");
+		
+		btnReset.addActionListener(this);
+		btnEnd.addActionListener(this);
+		
+		pnlStatic = new JPanel(new GridLayout(4,2));
+		pnlStatic.add(lblGameSum);
+		pnlStatic.add(lblGameSum2);
+		pnlStatic.add(lblWins);
+		pnlStatic.add(lblWins2);
+		pnlStatic.add(lblLose);
+		pnlStatic.add(lblLose2);
+		pnlStatic.add(lblRemis);
+		pnlStatic.add(lblRemis2);
+		
+		pnlSouth = new JPanel(new GridLayout(1,2));
+		pnlSouth.add(btnReset);
+		pnlSouth.add(btnEnd);
+		
+		contentPane = getContentPane();
+		contentPane.setLayout(new BorderLayout());
+		
+		contentPane.add(pnlStatic,  BorderLayout.PAGE_START);
+		contentPane.add(pnlSouth, BorderLayout.PAGE_END);
+		
+	}
+	
+	
+	@Override
+	public void actionPerformed(ActionEvent ae) {
+		// TODO Auto-generated method stub
+		Object source = ae.getSource();
+		if(source==btnEnd){
+			
+		}
+		else{
+			
+		}
+	}
+}

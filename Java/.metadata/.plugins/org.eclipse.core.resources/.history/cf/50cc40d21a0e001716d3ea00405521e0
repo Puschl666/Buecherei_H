@@ -1,0 +1,5 @@
+
+public class ModelFile implements StatisticBusiness{
+
+	public ArrayList load()
+}

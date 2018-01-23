@@ -1,0 +1,25 @@
+import java.util.Random;
+
+public class GameControl {
+	private int wCom;
+	private int erg;
+	private Random zufall;
+	
+	public GameControl()
+	{
+		zufall = new Random();
+		wCom = 0;
+		erg=42;
+	}
+	
+	public int spielzug(int wBen){
+		wCom = zufall.nextInt(4)+1;
+		erg = (int)(wBen==wCom ? 0 : Math.pow(-1, (wBen - wCom + 5) % 5));
+		
+		return erg;
+	}
+	public int getwCom()
+	{
+		return wCom;
+	}
+}

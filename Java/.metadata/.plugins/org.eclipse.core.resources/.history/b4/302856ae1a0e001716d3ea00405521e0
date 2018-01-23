@@ -1,0 +1,9 @@
+import java.util.ArrayList;
+public interface StatisitBusiness {
+	
+		
+		ArrayList load();
+		boolean save(ArrayList list);
+	}
+
+}
